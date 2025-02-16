@@ -163,3 +163,9 @@ async def trigger_event(trigger_id: str):
             db.add(log_entry)
             await db.commit()
             logger.info(f"Triggered event for {trigger.name} at {datetime.now(UTC)}")
+
+
+import uvicorn
+
+if __name__ == "__main__":
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
